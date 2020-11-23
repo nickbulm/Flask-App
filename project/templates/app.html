@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+{% block script %}
+<script >
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("dash").classList.add("selected");
+    });
+</script>
+{% endblock %}
+
+
+
+{% block head %}
+
+    <h3 class="title">Dashboard</h3>
+
+{% endblock %}
+{% block content %}
+    <div id="Dashboard" class="dash_parent" >
+
+        <div id="Dashboard" class="dash_div1">
+
+        </div>
+
+        <div id="Dashboard" class="dash_div2">
+
+        </div>
+
+        <div id="Dashboard" class="dash_div3">
+
+        </div>
+
+
+    </div>
+{% endblock %}

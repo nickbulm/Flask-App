@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Calculator
+{% endblock %}
+{% block script %}
+<script >
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("calc").classList.add("selected");
+    });
+</script>
+{% endblock %}
+<!-- Calculator -->
+{% block head %}
+    <h3 class="title">
+            Calculator
+    </h3>
+{% endblock %}
+{% block content %}
+    <div id="Calculator" class="calc_div">
+        <form action="/calculator" method="post">
+            <legend>Weight Calculator</legend>
+            <div class="form-group">
+                <select class="form-control" name="exercise">
+                    <option disabled selected value>Choose Exercise
+                    </option>
+                    <option value="squat" SELECTED>Squat</option>
+                    <option value="bench" SELECTED>Bench Press</option>
+                    <option value="chins" SELECTED>Chin-ups</option>
+                    <option value="deadlift" SELECTED>Deadlift</option>
+                </select>
+            </div>
+            <div>
+                <input class="form-control" type="number" min="1" max="30" name="reps" placeholder="No. Reps">
+                <input class="form-control" type="number" min="0" max="200" name= "percent" placeholder="Relative %">
+                <input class="form-control" type="number" min="1" max="10" name="rir" placeholder="reps in reserve">
+            </div><br>
+            <button style="cursor: pointer; type="submit">Submit</button>
+        </form><br>
+        <table class="rec_weight">
+            <tbody>
+                <tr>
+                    <th>
+                        Recommended Weight:
+                    </th>
+                    <th>
+                        {{ weight }}
+                    </th>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}

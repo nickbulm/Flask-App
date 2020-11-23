@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+{% block script %}
+<script >
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("prof").classList.add("selected");
+    });
+</script>
+{% endblock %}
+
+
+{% block head %}
+    <h3 class="title">Profile</h3>
+{% endblock %}
+{% block content %}
+        <div class= ="profile_pic">
+
+        </div>
+        <div class="best_lifts">
+            <h2>
+                Best Lifts
+            </h2>
+            <table>
+            <thead>
+                <tr>
+                    <th>Squats</th>
+                    <th>Bench Press</th>
+                    <th>Dead Lift</th>
+                    <th>Chin-ups</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ best[0]['squat'] }}</td>
+                    <td>{{ best[0]['bench'] }}</td>
+                    <td>{{ best[0]['deadlift'] }}</td>
+                    <td>{{ best[0]['chins'] }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+{% endblock %}

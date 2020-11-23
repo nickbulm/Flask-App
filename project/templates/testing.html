@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Testing
+{% endblock %}
+{% block script %}
+<script >
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("test").classList.add("selected");
+    });
+</script>
+{% endblock %}
+
+{% block head%}
+    <h3 class="title">Testing</h3>
+{% endblock %}
+{% block content %}
+        <div id="Testing" class="test_div">
+
+            <form action="/testing" method="post">
+                <table class="test_form" >
+                    <tbody>
+                        <tr>
+                            <th>
+                                Squat
+                            </th>
+                            <th></th>
+                            <th>
+                                Bench
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><input class="form-control" type="number" min="1" max="2000" name="squat_weight" placeholder="Weight lifted"></th>
+                            <th><input class="form-control" min="1" max ="30" name="squat_reps" placeholder="Reps" type="number"></th>
+                            <th><input class="form-control" type="number" min="1" max="2000" name="bench_weight" placeholder="Weight lifted"></th>
+                            <th><input class="form-control" min="1" max ="30" name="bench_reps" placeholder="Reps" type="number"></th>
+                        </tr>
+                        <tr>
+                            <th>Deadlift</th>
+                            <th></th>
+                            <th>Chin-ups</th>
+                        </tr>
+                        <tr>
+                            <th><input class="form-control" min="1" name="deadlift_weight" max="2000" placeholder="Weight lifted" type="number"></th>
+                            <th><input class="form-control" min="1" max ="30" name="deadlift_reps" placeholder="Reps" type="number"></th>
+                            <th><input class="form-control" min="1" max="2000" name="chins_weight" placeholder="Weight lifted" type="number"></th>
+                            <th><input class="form-control" min="1" max ="30" name="chins_reps" placeholder="Reps" type="number"></th>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button style="cursor: pointer; "type="submit">Submit</button>
+            </form>
+        </div>
+    <!-- TESTS -->
+        <div id="Tests" class="tes_div">
+            <div>
+            <h2 style="text-align: center;">
+                Previous Tests
+            </h2>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Test Date</th>
+                    <th>Squats</th>
+                    <th>Bench Press</th>
+                    <th>Dead Lift</th>
+                    <th>Chin-ups</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for test in testing %}
+                <tr>
+                    <td>{{ test['time_date'] }}</td>
+                    <td>{{ test['squat'] }}</td>
+                    <td>{{ test['bench'] }}</td>
+                    <td>{{ test['deadlift'] }}</td>
+                    <td>{{ test['chins'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            </div>
+        </div>
+{% endblock %}

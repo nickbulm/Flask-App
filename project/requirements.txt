@@ -1,5 +1,0 @@
-set-up Database
-csv.files for reps reference
-set-up flask
-set-up application page
-pages: index, login, register, weights calculator, profile-page, 1rm testing
